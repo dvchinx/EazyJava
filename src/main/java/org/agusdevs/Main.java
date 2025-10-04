@@ -14,41 +14,41 @@ public class Main {
         }
     }
 
-    public static void print(Integer txt) {
+    public static void print(Integer num) {
         try {
-            System.out.println(txt);
+            System.out.println(num);
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
     }
 
-    public static void print(Long txt) {
+    public static void print(Long num) {
         try {
-            System.out.println(txt);
+            System.out.println(num);
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
     }
 
-    public static void print(Double txt) {
+    public static void print(Double num) {
         try {
-            System.out.println(txt);
+            System.out.println(num);
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
     }
 
-    public static void print(Boolean txt) {
+    public static void print(Boolean bool) {
         try {
-            System.out.println(txt);
+            System.out.println(bool);
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
     }
 
-    public static void print(char txt) {
+    public static void print(char caracter) {
         try {
-            System.out.println(txt);
+            System.out.println(caracter);
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
