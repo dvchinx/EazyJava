@@ -1,92 +1,35 @@
 package org.agusdevs;
 
+/**
+ * Example class demonstrating how to use the PyJava library.
+ * This class shows various use cases of the Python-style print functions.
+ */
 public class Main {
 
     public static void main(String[] args) {
-        print("Hola");
-    }
-    public static void print(String txt) {
-        try {
-            System.out.print(txt);
-        } catch (Exception e) {
-            System.out.println("Error (String): " + e.getMessage());
-        }
-    }
-    public static void print(int num) {
-        try {
-            System.out.print(num);
-        } catch (Exception e) {
-            System.out.println("Error (int): " + e.getMessage());
-        }
-    }
-    public static void print(long num) {
-        try {
-            System.out.print(num);
-        } catch (Exception e) {
-            System.out.println("Error (long): " + e.getMessage());
-        }
-    }
-    public static void print(double num) {
-        try {
-            System.out.print(num);
-        } catch (Exception e) {
-            System.out.println("Error (double): " + e.getMessage());
-        }
-    }
-    public static void print(boolean bool) {
-        try {
-            System.out.print(bool);
-        } catch (Exception e) {
-            System.out.println("Error (boolean): " + e.getMessage());
-        }
-    }
-    public static void print(char ch) {
-        try {
-            System.out.print(ch);
-        } catch (Exception e) {
-            System.out.println("Error (char): " + e.getMessage());
-        }
-    }
-    public static void println(String txt) {
-        try {
-            System.out.println(txt);
-        } catch (Exception e) {
-            System.out.println("Error (String): " + e.getMessage());
-        }
-    }
-    public static void println(int num) {
-        try {
-            System.out.println(num);
-        } catch (Exception e) {
-            System.out.println("Error (int): " + e.getMessage());
-        }
-    }
-    public static void println(long num) {
-        try {
-            System.out.println(num);
-        } catch (Exception e) {
-            System.out.println("Error (long): " + e.getMessage());
-        }
-    }
-    public static void println(double num) {
-        try {
-            System.out.println(num);
-        } catch (Exception e) {
-            System.out.println("Error (double): " + e.getMessage());
-        }
-    }
-    public static void println(boolean bool) {
-        try {
-            System.out.println(bool);
-        } catch (Exception e) {
-            System.out.println("Error (boolean): " + e.getMessage());
-        }
-    }
-    public static void println(char ch) {
-        try {
-            System.out.println(ch);
-        } catch (Exception e) {
-            System.out.println("Error (char): " + e.getMessage());
-        }
+        // Demonstrate basic usage
+        PyJava.println("=== PyJava Library Demo ===");
+        PyJava.println();
+        
+        // String printing
+        PyJava.print("Hello, ");
+        PyJava.println("World!");
+        
+        // Number printing
+        PyJava.println("Integer: " + 42);
+        PyJava.println("Double: " + 3.14159);
+        PyJava.println("Long: " + 1000000000L);
+        
+        // Boolean and character
+        PyJava.println("Boolean: " + true);
+        PyJava.println("Character: " + 'A');
+        
+        // Multiple values with delimiter
+        PyJava.println(" | ", "Name", "Age", "City");
+        PyJava.println(" | ", "John", 25, "New York");
+        
+        // Blank line
+        PyJava.println();
+        PyJava.println("Demo completed successfully!");
     }
 }
