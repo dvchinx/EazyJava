@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Discusiones de la Comunidad
+    url: https://github.com/dvchinx/pyjava/discussions
+    about: Para preguntas generales, ideas y discusiones de la comunidad
+  - name: 📖 Documentación
+    url: https://github.com/dvchinx/pyjava/blob/main/README.md
+    about: Consulta la documentación oficial del proyecto

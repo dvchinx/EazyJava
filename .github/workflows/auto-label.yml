@@ -1,0 +1,66 @@
+name: Auto Label
+
+on:
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened]
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Auto-etiquetar basado en contenido
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const { owner, repo } = context.repo;
+          const issueNumber = context.payload.issue?.number || context.payload.pull_request?.number;
+          const title = context.payload.issue?.title || context.payload.pull_request?.title;
+          const body = context.payload.issue?.body || context.payload.pull_request?.body;
+          const isIssue = !!context.payload.issue;
+          
+          const labels = [];
+          
+          // Etiquetas basadas en el título
+          if (title.toLowerCase().includes('[bug]') || title.toLowerCase().includes('bug')) {
+            labels.push('bug');
+          }
+          if (title.toLowerCase().includes('[feature]') || title.toLowerCase().includes('feature')) {
+            labels.push('enhancement');
+          }
+          if (title.toLowerCase().includes('[docs]') || title.toLowerCase().includes('documentation')) {
+            labels.push('documentation');
+          }
+          if (title.toLowerCase().includes('[question]') || title.toLowerCase().includes('question')) {
+            labels.push('question');
+          }
+          
+          // Etiquetas basadas en el contenido
+          if (body && body.toLowerCase().includes('python')) {
+            labels.push('python');
+          }
+          if (body && body.toLowerCase().includes('java')) {
+            labels.push('java');
+          }
+          if (body && body.toLowerCase().includes('test')) {
+            labels.push('testing');
+          }
+          if (body && body.toLowerCase().includes('performance') || body && body.toLowerCase().includes('rendimiento')) {
+            labels.push('performance');
+          }
+          
+          // Etiquetas específicas para PRs
+          if (!isIssue) {
+            labels.push('pull-request');
+          }
+          
+          // Aplicar etiquetas si hay alguna
+          if (labels.length > 0) {
+            await github.rest.issues.addLabels({
+              owner,
+              repo,
+              issue_number: issueNumber,
+              labels: [...new Set(labels)] // Remover duplicados
+            });
+          }

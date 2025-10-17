@@ -186,9 +186,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 Author
 
-**Agus Developer** - [agusdevs](https://github.com/agusdevs)
+**Agus Developers** - [agusdevs]
 
 ## 🙏 Acknowledgments
 
-- Inspired by Python's simple and intuitive print function
-- Built for Java developers who want simplified console output
+- Inspired by Python's simple and intuitive functions
+- Built for Java developers who want simplified methods
