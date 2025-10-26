@@ -1,8 +1,8 @@
-# Contributing to PyJava
+# Contributing to EazyJava
 
-¡Gracias por tu interés en contribuir a PyJava! 🎉
+¡Gracias por tu interés en contribuir a EazyJava! 🎉
 
-PyJava es un proyecto open source que busca facilitar la integración entre Python y Java. Valoramos todas las contribuciones, desde reportes de bugs hasta nuevas funcionalidades.
+EazyJava es un proyecto open source que busca facilitar el desarrollo en Java. Valoramos todas las contribuciones, desde reportes de bugs hasta nuevas funcionalidades.
 
 ## Código de Conducta
 
@@ -40,8 +40,8 @@ Al participar en este proyecto, te comprometes a mantener un ambiente respetuoso
 ### Configuración
 ```bash
 # Clonar el repositorio
-git clone https://github.com/dvchinx/pyjava.git
-cd pyjava
+git clone https://github.com/dvchinx/EazyJava.git
+cd EazyJava
 
 # Ejecutar tests
 ./gradlew test
@@ -57,20 +57,6 @@ cd pyjava
 - Sigue las convenciones de nombres de Java (camelCase para métodos y variables, PascalCase para clases)
 - Documenta métodos públicos con Javadoc
 - Mantén las líneas de código bajo 120 caracteres
-
-### Ejemplo de formato:
-```java
-/**
- * Ejecuta código Python desde Java.
- * 
- * @param pythonCode El código Python a ejecutar
- * @return El resultado de la ejecución
- * @throws PyJavaException Si hay un error en la ejecución
- */
-public String executePython(String pythonCode) throws PyJavaException {
-    // Implementación
-}
-```
 
 ## Tests
 
@@ -151,4 +137,4 @@ Este proyecto sigue [Semantic Versioning](https://semver.org/):
 
 ---
 
-¡Gracias por contribuir a PyJava! 🚀
+¡Gracias por contribuir a EazyJava! 🚀

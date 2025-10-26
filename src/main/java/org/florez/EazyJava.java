@@ -287,8 +287,6 @@ public class EazyJava {
     * @param useLiteralFormat true to convert to literal text, false to return numeric string
     * @return the text representation of the number
     * @throws IllegalArgumentException if num is outside the supported range (0-999)
-    * @example toText(250, true) returns "two hundred fifty"
-    * @example toText(250, false) returns "250"
     */
     public static String toText(int num, boolean useLiteralFormat) {
         try {
@@ -313,10 +311,11 @@ public class EazyJava {
     /**
      * 
      * @param num the integer to return as a String
+     * @return the num converted to String
      */
     public static String toText(int num){
         try {
-            return num+"";
+            return String.valueOf(num);
         }catch (Exception e) {
             System.err.println("EazyJava Error in toText() | " + e.getMessage());
             return "";
@@ -326,6 +325,7 @@ public class EazyJava {
     /**
      * 
      * @param num the long to return as a String
+     * @return the long converted to String
      */
     public static String toText(long num){
         try {
@@ -339,6 +339,7 @@ public class EazyJava {
     /**
      * 
      * @param num the double to return as a String
+     * @return the double converted to String
      */
     public static String toText(double num){
         try {
@@ -352,6 +353,7 @@ public class EazyJava {
     /**
      * 
      * @param bool the boolean to return as a String
+     * @return the boolean converted to String
      */
     public static String toText(boolean bool) {
         try {
@@ -376,8 +378,6 @@ public class EazyJava {
      *                        false if it's in numeric format (e.g., "250")
      * @return the integer value of the string
      * @throws IllegalArgumentException if the string cannot be converted or is outside supported range
-     * @example toInt("two hundred fifty", true) returns 250
-     * @example toInt("250", false) returns 250
      */
     public static int toInt(String str, boolean useLiteralFormat) {
         try {
@@ -482,6 +482,7 @@ public class EazyJava {
     /**
      * 
      * @param str the String to return as a int
+     * @return the String converted to int
      */
     public static int toInt(String str) {
         try {
