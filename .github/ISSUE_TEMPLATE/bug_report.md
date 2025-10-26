@@ -1,6 +1,6 @@
 ---
 name: 🐛 Bug Report
-about: Crear un reporte para ayudarnos a mejorar PyJava
+about: Crear un reporte para ayudarnos a mejorar EazyJava
 title: '[BUG] '
 labels: ['bug', 'needs-triage']
 assignees: ''
@@ -27,7 +27,7 @@ Si aplica, añade capturas de pantalla para ayudar a explicar tu problema.
 ## 🖥️ Información del Sistema
 **Sistema Operativo:** [ej. Windows 11, Ubuntu 20.04, macOS 12.0]
 **Versión de Java:** [ej. OpenJDK 11.0.2]
-**Versión de PyJava:** [ej. v1.0.0]
+**Versión de EazyJava:** [ej. v1.0.0]
 
 ## 📋 Logs/Código de Error
 ```
@@ -40,4 +40,4 @@ Añade cualquier otro contexto sobre el problema aquí.
 ## ✅ Checklist
 - [ ] He buscado en issues existentes para verificar que este bug no ha sido reportado antes
 - [ ] He incluido toda la información necesaria para reproducir el problema
-- [ ] He probado con la última versión de PyJava
+- [ ] He probado con la última versión de EazyJava
