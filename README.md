@@ -1,194 +1,177 @@
-# PyJava
+# 🚀 EazyJava
 
-A Python-style print library for Java that provides simplified printing methods with built-in error handling and support for multiple data types.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Java](https://img.shields.io/badge/Java-11%2B-orange.svg)](https://www.oracle.com/java/)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/dvchinx/EazyJava)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/dvchinx/EazyJava/releases)
 
-## 🚀 Features
+**A powerful Java library that add and simplifies methods to make Java easier to work with.**
 
-- **Simple Syntax**: Python-like `print()` and `println()` methods
-- **Type Support**: Built-in support for all primitive types and objects
-- **Error Handling**: Automatic exception handling with informative error messages
-- **Multiple Values**: Print multiple values with custom delimiters
-- **Zero Dependencies**: Lightweight library with no external dependencies
+---
+
+## 📋 Table of Contents
+
+- [🌟 Features](#-features)
+- [📦 Installation](#-installation)
+- [🔧 API Reference](#-api-reference)
+- [📖 Usage Examples](#-usage-examples)
+- [🧪 Testing](#-testing)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
+- [👨‍💻 Author](#-author)
+
+---
+
+## 🌟 Features
+
+| Feature | Description | Status |
+|---------|-------------|--------|
+| **Print Functions** | Python-like `print()` and `println()` methods | ✅ Complete |
+| **Type Casting** | Advanced type conversion utilities | ✅ Complete |
+| **Number Base Conversion** | Binary, Hexadecimal, and Octal parsing | ✅ Complete |
+| **Text-to-Number** | Literal text number conversion | ✅ Complete |
+| **Error Handling** | Built-in exception handling with informative messages | ✅ Complete |
+| **Zero Dependencies** | Lightweight library with no external dependencies | ✅ Complete |
+| **Multiple Data Types** | Support for all primitive types and objects | ✅ Complete |
+
+---
 
 ## 📦 Installation
 
 ### Gradle (Kotlin DSL)
 ```kotlin
 dependencies {
-    implementation("org.agusdevs:pyjava:1.0.0")
+    implementation("org.florez:eazyjava:1.0.0")
 }
 ```
 
 ### Gradle (Groovy)
 ```groovy
 dependencies {
-    implementation 'org.agusdevs:pyjava:1.0.0'
+    implementation 'org.florez:eazyjava:1.0.0'
 }
 ```
 
 ### Maven
 ```xml
 <dependency>
-    <groupId>org.agusdevs</groupId>
-    <artifactId>pyjava</artifactId>
+    <groupId>org.florez</groupId>
+    <artifactId>eazyjava</artifactId>
     <version>1.0.0</version>
 </dependency>
 ```
 
-## 📖 Usage
+---
 
-### Basic Examples
+## � API Reference
 
-```java
-import static org.agusdevs.PyJava.*;
+### 🖨️ Print Methods
 
-public class Example {
-    public static void main(String[] args) {
-        // Print without newline
-        print("Hello, ");
-        print("World!");
-        
-        // Print with newline
-        println("Hello, World!");
-        
-        // Print numbers
-        println(42);
-        println(3.14159);
-        println(1000000000L);
-        
-        // Print boolean and characters
-        println(true);
-        println('A');
-        
-        // Print objects
-        println(new Date());
-    }
-}
-```
+| Method | Parameters | Description | Example |
+|--------|------------|-------------|---------|
+| `print()` | `String` | Print string without newline | `print("Hello")` |
+| `print()` | `int/long/double/boolean/char` | Print primitive types without newline | `print(42)` |
+| `print()` | `Object` | Print object using toString() without newline | `print(new Date())` |
+| `print()` | `String delimiter, Object...` | Print multiple values with custom delimiter | `print(", ", 1, 2, 3)` |
+| `println()` | Same as print + newline | All print methods with automatic newline | `println("Hello World")` |
+| `println()` | None | Print empty line | `println()` |
 
-### Advanced Features
+### 🔄 Type Conversion Methods
 
-```java
-import static org.agusdevs.PyJava.*;
+| Method | Input | Output | Description | Example |
+|--------|-------|--------|-------------|---------|
+| `toText()` | `int, boolean` | `String` | Convert integer to literal text | `toText(250, true)` → `"Two hundred fifty"` |
+| `toText()` | `boolean` | `String` | Convert boolean to text | `toText(true)` → `"true"` |
+| `toText()` | `double` | `String` | Convert double to text | `toText(3.14)` → `"3.14"` |
+| `toInt()` | `String, boolean` | `int` | Convert string/literal to integer | `toInt("two hundred", true)` → `250` |
 
-public class AdvancedExample {
-    public static void main(String[] args) {
-        // Print multiple values with delimiter
-        println(" | ", "Name", "Age", "City");
-        println(" | ", "John", 25, "New York");
-        println(" | ", "Jane", 30, "London");
-        
-        // Print table-like data
-        print(", ", 1, 2, 3, 4, 5);
-        println(); // Empty line
-        
-        // Mix different data types
-        println(" - ", "Score:", 95.5, "Grade:", 'A', "Passed:", true);
-    }
-}
-```
+### 🔢 Base Conversion Methods
 
-### Output
-```
-Name | Age | City
-John | 25 | New York
-Jane | 30 | London
-1, 2, 3, 4, 5
+| Method | Input Format | Description | Example |
+|--------|--------------|-------------|---------|
+| `toIntFromBin()` | Binary string | Convert binary to integer | `toIntFromBin("1010")` → `10` |
+| `toIntFromHex()` | Hexadecimal string | Convert hexadecimal to integer | `toIntFromHex("FF")` → `255` |
+| `toIntFromOct()` | Octal string | Convert octal to integer | `toIntFromOct("755")` → `493` |
 
-Score: - 95.5 - Grade: - A - Passed: - true
-```
+#### Supported Input Formats
 
-## 🔧 API Reference
+| Base | Supported Formats | Examples |
+|------|------------------|----------|
+| **Binary** | `"1010"`, `"0b1010"` | `toIntFromBin("0b1010")` |
+| **Hexadecimal** | `"FF"`, `"0xFF"`, `"0XFF"` | `toIntFromHex("0xFF")` |
+| **Octal** | `"755"`, `"0755"`, `"0o755"` | `toIntFromOct("0o755")` |
 
-### Methods
-
-| Method | Description |
-|--------|-------------|
-| `print(String)` | Print string without newline |
-| `print(int)` | Print integer without newline |
-| `print(long)` | Print long without newline |
-| `print(double)` | Print double without newline |
-| `print(boolean)` | Print boolean without newline |
-| `print(char)` | Print character without newline |
-| `print(Object)` | Print object (using toString()) without newline |
-| `println(...)` | Same as print methods but with newline |
-| `println()` | Print empty line |
-| `print(String delimiter, Object... values)` | Print multiple values with delimiter |
-| `println(String delimiter, Object... values)` | Print multiple values with delimiter and newline |
-
-### Error Handling
-
-All methods include built-in exception handling. If an error occurs, it will be printed to `System.err` with a descriptive message:
-
-```
-PyJava Error (String): [error message]
-```
-
-## 🧪 Testing
-
-Run the tests using Gradle:
-
-```bash
-./gradlew test
-```
-
-The library includes comprehensive unit tests covering all methods and edge cases.
+---
 
 ## 🏗️ Building from Source
 
-1. Clone the repository:
 ```bash
-git clone https://github.com/dvchinx/pyjava.git
-cd pyjava
-```
+# Clone the repository
+git clone https://github.com/dvchinx/EazyJava.git
+cd EazyJava
 
-2. Build the project:
-```bash
+# Build the project
 ./gradlew build
-```
 
-3. Generate documentation:
-```bash
+# Generate documentation
 ./gradlew javadoc
-```
 
-4. Publish to local repository:
-```bash
+# Publish to local repository
 ./gradlew publishToMavenLocal
 ```
 
-## 📋 Requirements
+### Build Requirements
 
-- Java 11 or higher
-- No external dependencies
+| Requirement | Version | Status |
+|-------------|---------|--------|
+| **Java** | 11+ | ✅ Required |
+| **Gradle** | 7.0+ | ✅ Included |
+| **Dependencies** | None | ✅ Zero external deps |
+
+---
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+We welcome contributions! Here's how you can help:
+
+### 📋 Contribution Guidelines
+
+| Step | Action | Command |
+|------|--------|---------|
+| 1 | Fork the repository | [Fork on GitHub](https://github.com/dvchinx/EazyJava/fork) |
+| 2 | Create feature branch | `git checkout -b feature/amazing-feature` |
+| 3 | Commit changes | `git commit -m 'Add amazing feature'` |
+| 4 | Push to branch | `git push origin feature/amazing-feature` |
+| 5 | Open Pull Request | [Create PR](https://github.com/dvchinx/EazyJava/pulls) |
+
+### 🎯 Areas for Contribution
+
+- [ ] Additional number base conversions
+- [ ] Internationalization support
+- [ ] Performance optimizations
+- [ ] Extended literal text support
+- [ ] Additional formatting options
+
+---
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
-## 📝 Changelog
+---
 
-### v1.0.0
-- Initial release
-- Basic print/println methods for all primitive types
-- Object printing support
-- Multiple values printing with custom delimiters
-- Comprehensive error handling
-- Full test coverage
+## 🙏 Contributors
 
-## 👨‍💻 Author
+Special thanks to all contributors who have helped make EazyJava better!
 
-**Agus Developers** - [agusdevs]
+For a complete list, see [CONTRIBUTORS.md](CONTRIBUTORS.md).
 
-## 🙏 Acknowledgments
+---
 
-- Inspired by Python's simple and intuitive functions
-- Built for Java developers who want simplified methods
+<div align="center">
+
+**Made with ❤️ by [dvchinx](https://github.com/dvchinx)**
+
+*If this library helped you, please consider giving it a ⭐!*
+
+</div>

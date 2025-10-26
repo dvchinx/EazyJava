@@ -1,6 +1,6 @@
 ---
 name: 💡 Feature Request
-about: Sugerir una nueva funcionalidad para PyJava
+about: Sugerir una nueva funcionalidad para EazyJava
 title: '[FEATURE] '
 labels: ['enhancement', 'needs-discussion']
 assignees: ''

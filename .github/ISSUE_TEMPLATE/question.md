@@ -1,13 +1,13 @@
 ---
 name: ❓ Question
-about: Hacer una pregunta sobre PyJava
+about: Hacer una pregunta sobre EazyJava
 title: '[QUESTION] '
 labels: ['question']
 assignees: ''
 ---
 
 ## ❓ Tu Pregunta
-Describe claramente tu pregunta sobre PyJava.
+Describe claramente tu pregunta sobre EazyJava.
 
 ## 🔍 Contexto
 Proporciona contexto sobre lo que estás tratando de hacer o el problema que enfrentas.
@@ -28,4 +28,4 @@ Si tu pregunta está relacionada con código específico, inclúyelo aquí:
 **Sistema Operativo:** [ej. Windows 11, Ubuntu 20.04, macOS 12.0]
 **Versión de Java:** [ej. OpenJDK 11.0.2]
 **Versión de Python:** [ej. Python 3.9.7]
-**Versión de PyJava:** [ej. v1.0.0]
+**Versión de EazyJava:** [ej. v1.0.0]
