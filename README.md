@@ -38,30 +38,8 @@
 
 ## 📦 Installation
 
-### Gradle (Kotlin DSL)
-```kotlin
-dependencies {
-    implementation("org.florez:eazyjava:1.0.0")
-}
-```
-
-### Gradle (Groovy)
-```groovy
-dependencies {
-    implementation 'org.florez:eazyjava:1.0.0'
-}
-```
-
-### Maven
-```xml
-<dependency>
-    <groupId>org.florez</groupId>
-    <artifactId>eazyjava</artifactId>
-    <version>1.0.0</version>
-</dependency>
-```
-
----
+### Using JitPack.io
+`https://jitpack.io/#dvchinx/EazyJava/-72e2ebb5f7-1`
 
 ## � API Reference
 
