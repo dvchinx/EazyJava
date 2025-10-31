@@ -1,10 +1,8 @@
 package org.florez;
 
 /**
- * EazyJava - A Python-style print library for Java
- * 
- * This library provides simplified printing methods that mimic Python's print() function,
- * with built-in error handling and support for multiple data types.
+ * EazyJava - A powerful Java library that adds and simplifies methods to make Java easier to work with.
+ * This class provides various utility methods for printing, converting data types, and more.
  * 
  * @author dvchinx
  * @version 1.0.0
@@ -21,7 +19,7 @@ public class EazyJava {
         try {
             System.out.print(txt);
         } catch (Exception e) {
-            System.err.println("EazyJava Error (String): " + e.getMessage());
+            throw new RuntimeException("EazyJava Error (String): " + e.getMessage());
         }
     }
 
@@ -34,7 +32,7 @@ public class EazyJava {
         try {
             System.out.print(num);
         } catch (Exception e) {
-            System.err.println("EazyJava Error (int): " + e.getMessage());
+            throw new RuntimeException("EazyJava Error (int): " + e.getMessage());
         }
     }
 
@@ -47,7 +45,7 @@ public class EazyJava {
         try {
             System.out.print(num);
         } catch (Exception e) {
-            System.err.println("EazyJava Error (long): " + e.getMessage());
+            throw new RuntimeException("EazyJava Error (long): " + e.getMessage());
         }
     }
 
@@ -60,7 +58,7 @@ public class EazyJava {
         try {
             System.out.print(num);
         } catch (Exception e) {
-            System.err.println("EazyJava Error (double): " + e.getMessage());
+            throw new RuntimeException("EazyJava Error (double): " + e.getMessage());
         }
     }
 
@@ -73,7 +71,7 @@ public class EazyJava {
         try {
             System.out.print(bool);
         } catch (Exception e) {
-            System.err.println("EazyJava Error (boolean): " + e.getMessage());
+            throw new RuntimeException("EazyJava Error (boolean): " + e.getMessage());
         }
     }
 
@@ -86,7 +84,7 @@ public class EazyJava {
         try {
             System.out.print(ch);
         } catch (Exception e) {
-            System.err.println("EazyJava Error (char): " + e.getMessage());
+            throw new RuntimeException("EazyJava Error (char): " + e.getMessage());
         }
     }
 
@@ -99,7 +97,7 @@ public class EazyJava {
         try {
             System.out.print(obj);
         } catch (Exception e) {
-            System.err.println("EazyJava Error (Object): " + e.getMessage());
+            throw new RuntimeException("EazyJava Error (Object): " + e.getMessage());
         }
     }
 
@@ -112,7 +110,7 @@ public class EazyJava {
         try {
             System.out.println(txt);
         } catch (Exception e) {
-            System.err.println("EazyJava Error (String): " + e.getMessage());
+            throw new RuntimeException("EazyJava Error (String): " + e.getMessage());
         }
     }
 
@@ -125,7 +123,7 @@ public class EazyJava {
         try {
             System.out.println(num);
         } catch (Exception e) {
-            System.err.println("EazyJava Error (int): " + e.getMessage());
+            throw new RuntimeException("EazyJava Error (int): " + e.getMessage());
         }
     }
 
@@ -138,7 +136,7 @@ public class EazyJava {
         try {
             System.out.println(num);
         } catch (Exception e) {
-            System.err.println("EazyJava Error (long): " + e.getMessage());
+            throw new RuntimeException("EazyJava Error (long): " + e.getMessage());
         }
     }
 
@@ -151,7 +149,7 @@ public class EazyJava {
         try {
             System.out.println(num);
         } catch (Exception e) {
-            System.err.println("EazyJava Error (double): " + e.getMessage());
+            throw new RuntimeException("EazyJava Error (double): " + e.getMessage());
         }
     }
 
@@ -164,7 +162,7 @@ public class EazyJava {
         try {
             System.out.println(bool);
         } catch (Exception e) {
-            System.err.println("EazyJava Error (boolean): " + e.getMessage());
+            throw new RuntimeException("EazyJava Error (boolean): " + e.getMessage());
         }
     }
 
@@ -177,7 +175,7 @@ public class EazyJava {
         try {
             System.out.println(ch);
         } catch (Exception e) {
-            System.err.println("EazyJava Error (char): " + e.getMessage());
+            throw new RuntimeException("EazyJava Error (char): " + e.getMessage());
         }
     }
 
@@ -190,7 +188,7 @@ public class EazyJava {
         try {
             System.out.println(obj);
         } catch (Exception e) {
-            System.err.println("EazyJava Error (Object): " + e.getMessage());
+            throw new RuntimeException("EazyJava Error (Object): " + e.getMessage());
         }
     }
 
@@ -201,7 +199,7 @@ public class EazyJava {
         try {
             System.out.println();
         } catch (Exception e) {
-            System.err.println("EazyJava Error: " + e.getMessage());
+            throw new RuntimeException("EazyJava Error: " + e.getMessage());
         }
     }
 
@@ -220,7 +218,22 @@ public class EazyJava {
                 System.out.print(values[i]);
             }
         } catch (Exception e) {
-            System.err.println("EazyJava Error (multiple values): " + e.getMessage());
+            throw new RuntimeException("EazyJava Error (multiple values): " + e.getMessage());
+        }
+    }
+
+    /**
+     * Prints multiple values separated by a blank space.
+     * 
+     * @param values the values to print
+     */
+    public static void print(Object... values) {
+        try {
+            for (int i = 0; i < values.length; i++) {
+                System.out.print(values[i] + " ");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("EazyJava Error (multiple values): " + e.getMessage());
         }
     }
 
@@ -232,6 +245,15 @@ public class EazyJava {
      */
     public static void println(String delimiter, Object... values) {
         print(delimiter, values);
+        println();
+    }
+
+    /**
+     * Prints multiple values separated by a blank space with a newline at the end.
+     * @param values the values to print
+     */
+    public static void println(Object... values) {
+        print(values);
         println();
     }
 
@@ -528,7 +550,7 @@ public class EazyJava {
      */
     public static int toIntFromOct(String str) {
         try {
-            str = str.toLowerCase();
+            str = str.toLowerCase().trim();
             if (str.startsWith("0o")) {
                 str = str.substring(2);
             } else if (str.startsWith("0") && str.length() > 1) {
@@ -537,6 +559,80 @@ public class EazyJava {
             return Integer.parseInt(str, 8);
         } catch (Exception e) {
             throw new NumberFormatException("Invalid entry in toIntFromOct(): " + e.getMessage());
+        }
+    }
+
+    /**
+     * Converts a string to a boolean.
+     * 
+     * @param str the word to convert ('true/True/tRuE/...')
+     * @return the boolean interpretation of the String
+     */
+    public static Boolean toBoolean(String str) {
+        try {
+            str = str.toLowerCase().trim();
+            if (str.equals("true")){ 
+                return true;
+            }else {
+                return false;
+            }
+        }catch (Exception e) {
+            throw new IllegalArgumentException("Invalid entry in toBoolean(str): " + e.getMessage());
+        }
+    }
+
+    /**
+     * Converts an integer to a boolean.
+     * 
+     * @param num the number to convert | 1 = true | other = false
+     * @return the boolean interpretation of the num
+     */
+    public static Boolean toBoolean(int num) {
+        try {
+            if (num == 1) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch (Exception e) {
+            throw new IllegalArgumentException("Invalid entry in toBoolean(int): " + e.getMessage());
+        }
+    }
+
+    /**
+     * Converts a long to a boolean.
+     * 
+     * @param num the number to convert | 1 = true | other = false
+     * @return the boolean interpretation of the num
+     */
+    public static Boolean toBoolean(long num) {
+        try {
+            if (num == 1) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch (Exception e) {
+            throw new IllegalArgumentException("Invalid entry in toBoolean(int): " + e.getMessage());
+        }
+    }
+
+    /**
+     * Converts a double to a boolean.
+     * 
+     * @param num the number to convert
+     * @return the boolean interpretation of the num
+     */
+    public static Boolean toBoolean(double num) {
+        try {
+            int num_new = (int) (num + 0.5f);
+            if (num_new == 1) {
+                return true;
+            } else {
+                return false;
+            }
+        }catch (Exception e) {
+            throw new IllegalArgumentException("Invalid entry in toBoolean(float): " + e.getMessage());
         }
     }
 }

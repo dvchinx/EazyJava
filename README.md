@@ -5,7 +5,7 @@
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/dvchinx/EazyJava)
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/dvchinx/EazyJava/releases)
 
-**A powerful Java library that add and simplifies methods to make Java easier to work with.**
+**A powerful Java library that adds and simplifies methods to make Java easier to work with.**
 
 ---
 
