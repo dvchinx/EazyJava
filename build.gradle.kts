@@ -4,9 +4,9 @@ plugins {
     id("signing")
 }
 
-group = "org.agusdevs"
+group = "org.florez"
 version = "1.0.0"
-description = "PyJava - A Python-style print library for Java"
+description = "EazyJava - A library for Java to make it easier to work with"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_11
@@ -41,7 +41,7 @@ tasks.jar {
         attributes(
             "Implementation-Title" to project.name,
             "Implementation-Version" to project.version,
-            "Implementation-Vendor" to "agusdevs"
+            "Implementation-Vendor" to "florez"
         )
     }
 }
@@ -52,9 +52,9 @@ publishing {
             from(components["java"])
             
             pom {
-                name.set("PyJava")
-                description.set("A Python-style print library for Java with simplified syntax and built-in error handling")
-                url.set("https://github.com/dvchinx/pyjava")
+                name.set("EazyJava")
+                description.set("EazyJava - A library for Java to make it easier to work with")
+                url.set("https://github.com/dvchinx/eazyjava")
                 
                 licenses {
                     license {
@@ -65,16 +65,16 @@ publishing {
                 
                 developers {
                     developer {
-                        id.set("agusdevs")
-                        name.set("Agus Developer")
-                        email.set("agus@example.com")
+                        id.set("dvchinx")
+                        name.set("Jesus Florez")
+                        email.set("none@example.com")
                     }
                 }
                 
                 scm {
-                    connection.set("scm:git:git://github.com/dvchinx/pyjava.git")
-                    developerConnection.set("scm:git:ssh://github.com/dvchinx/pyjava.git")
-                    url.set("https://github.com/dvchinx/pyjava")
+                    connection.set("scm:git:git://github.com/dvchinx/eazyjava.git")
+                    developerConnection.set("scm:git:ssh://github.com/dvchinx/eazyjava.git")
+                    url.set("https://github.com/dvchinx/eazyjava")
                 }
             }
         }

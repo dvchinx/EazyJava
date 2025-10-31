@@ -2,7 +2,7 @@ package org.florez;
 import static org.florez.EazyJava.*;
 /**
  * Example class demonstrating how to use the EazyJava library.
- * This class shows various use cases of the Python-style print functions.
+ * This class shows the most recent added methods.
  */
 public class Main {
 
@@ -11,27 +11,13 @@ public class Main {
         println("=== EazyJava Library Demo ===");
         println();
 
-        // Integer to Text (Literal Writing and Casting to String)
-        int num = 240;
-        println(toText(num, true)); // Return "18"
-        println(toText(num, true)); // Return "eighteen"
-
-        println(toText(false)); // Return "false"
-        println(toText(2.5467)); 
-
-        println(".....");
-
-        // Text to Integer (Literal Writing and Casting to int)
-        String numStr = "Two hundred fifty three";
-        println(toInt(numStr, true)); // Return 253
-
-        // Casting de Base Variable a int
-        println(toIntFromBin("1111100")); // Return  124
-        println(toIntFromHex("0x7A")); // Return 122
-        println(toIntFromOct("526")); // Return 342
-
-        println(":......:");
-
-        println(toIntFromBin("2"));
+        String ex0 = "tRuE ";
+        println(toBoolean(ex0));
+        
+        boolean ex1 = toBoolean(1);
+        boolean ex2 = toBoolean(0L);
+        boolean ex3 = toBoolean(0.4f);
+        println(" - ", ex1, ex2, ex3);
+        println(ex1, ex2, ex3);
     }
 }
