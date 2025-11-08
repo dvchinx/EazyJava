@@ -241,4 +241,141 @@ class EazyJavaTest {
         assertEquals(8, toIntFromOct("10"));
         assertThrows(NumberFormatException.class, () -> toIntFromOct("8"));
     }
+
+    // ===== Tests for toBoolean methods =====
+
+    @Test
+    void testToBooleanString() {
+        // Test valid true values
+        assertTrue(toBoolean("true"));
+        assertTrue(toBoolean("TRUE"));
+        assertTrue(toBoolean("True"));
+        assertTrue(toBoolean("  true  "));
+        assertTrue(toBoolean("  TRUE  "));
+        
+        // Test false values (everything that's not "true")
+        assertFalse(toBoolean("false"));
+        assertFalse(toBoolean("FALSE"));
+        assertFalse(toBoolean("False"));
+        assertFalse(toBoolean(""));
+        assertFalse(toBoolean("  "));
+        assertFalse(toBoolean("random"));
+        assertFalse(toBoolean("1"));
+        assertFalse(toBoolean("0"));
+        assertFalse(toBoolean("yes"));
+        assertFalse(toBoolean("no"));
+    }
+
+    @Test
+    void testToBooleanStringWithNull() {
+        // Test null input - should throw IllegalArgumentException
+        assertThrows(IllegalArgumentException.class, () -> toBoolean((String) null));
+    }
+
+    @Test
+    void testToBooleanInt() {
+        // Test integer conversion: 1 = true, everything else = false
+        assertTrue(toBoolean(1));
+        
+        // All other integers should be false
+        assertFalse(toBoolean(0));
+        assertFalse(toBoolean(-1));
+        assertFalse(toBoolean(2));
+        assertFalse(toBoolean(100));
+        assertFalse(toBoolean(-100));
+        assertFalse(toBoolean(Integer.MAX_VALUE));
+        assertFalse(toBoolean(Integer.MIN_VALUE));
+    }
+
+    @Test
+    void testToBooleanLong() {
+        // Test long conversion: 1L = true, everything else = false
+        assertTrue(toBoolean(1L));
+        
+        // All other longs should be false
+        assertFalse(toBoolean(0L));
+        assertFalse(toBoolean(-1L));
+        assertFalse(toBoolean(2L));
+        assertFalse(toBoolean(100L));
+        assertFalse(toBoolean(-100L));
+        assertFalse(toBoolean(Long.MAX_VALUE));
+        assertFalse(toBoolean(Long.MIN_VALUE));
+    }
+
+    @Test
+    void testToBooleanDouble() {
+        // Test double conversion with rounding logic
+        // Values that round to 1 should be true
+        assertTrue(toBoolean(1.0));
+        assertTrue(toBoolean(0.5));    // 0.5 + 0.5 = 1.0 -> rounds to 1
+        assertTrue(toBoolean(0.6));    // 0.6 + 0.5 = 1.1 -> rounds to 1
+        assertTrue(toBoolean(1.4));    // 1.4 + 0.5 = 1.9 -> rounds to 1
+        assertTrue(toBoolean(1.49));   // 1.49 + 0.5 = 1.99 -> rounds to 1
+        
+        // Values that don't round to 1 should be false
+        assertFalse(toBoolean(0.0));
+        assertFalse(toBoolean(0.4));   // 0.4 + 0.5 = 0.9 -> rounds to 0
+        assertFalse(toBoolean(0.49));  // 0.49 + 0.5 = 0.99 -> rounds to 0
+        assertFalse(toBoolean(-0.5));  // -0.5 + 0.5 = 0.0 -> rounds to 0
+        assertFalse(toBoolean(-1.0));  // -1.0 + 0.5 = -0.5 -> rounds to 0
+        assertFalse(toBoolean(2.0));   // 2.0 + 0.5 = 2.5 -> rounds to 2
+        assertFalse(toBoolean(1.5));   // 1.5 + 0.5 = 2.0 -> rounds to 2
+        assertFalse(toBoolean(1.6));   // 1.6 + 0.5 = 2.1 -> rounds to 2
+        assertFalse(toBoolean(100.0));
+        assertFalse(toBoolean(-100.0));
+    }
+
+    @Test
+    void testToBooleanDoubleEdgeCases() {
+        // Test special double values
+        assertFalse(toBoolean(Double.POSITIVE_INFINITY));
+        assertFalse(toBoolean(Double.NEGATIVE_INFINITY));
+        assertFalse(toBoolean(Double.NaN));
+        assertFalse(toBoolean(Double.MAX_VALUE));
+        assertFalse(toBoolean(Double.MIN_VALUE));
+        assertFalse(toBoolean(-Double.MAX_VALUE));
+    }
+
+    @Test
+    void testToBooleanMethodsIntegration() {
+        // Test integration with Main.java examples
+        String ex0 = "tRuE ";
+        assertTrue(toBoolean(ex0));
+        
+        boolean ex1 = toBoolean(1);
+        boolean ex2 = toBoolean(0L);
+        boolean ex3 = toBoolean(0.4f);  // This should be false based on the rounding logic
+        
+        assertTrue(ex1);
+        assertFalse(ex2);
+        assertFalse(ex3);
+    }
+
+    @Test
+    void testToBooleanStringVariations() {
+        // Test various string formats - corrected version
+        assertTrue(toBoolean("true"));
+        assertTrue(toBoolean("TRUE"));
+        assertTrue(toBoolean("True"));
+        assertTrue(toBoolean("tRuE"));
+        assertTrue(toBoolean("\ttrue\n"));
+        assertTrue(toBoolean("   true   "));
+        assertTrue(toBoolean("true "));   // true due to trim()
+        assertTrue(toBoolean(" true"));   // true due to trim()
+        assertTrue(toBoolean("  true  ")); // true due to trim()
+        
+        // Everything else should be false
+        assertFalse(toBoolean("false"));
+        assertFalse(toBoolean("truee"));
+        assertFalse(toBoolean("ttrue"));
+        assertFalse(toBoolean("tr ue"));  // Space in middle won't be trimmed
+        assertFalse(toBoolean("t rue"));  // Space in middle won't be trimmed
+        assertFalse(toBoolean(""));
+        assertFalse(toBoolean("  "));
+        assertFalse(toBoolean("random"));
+        assertFalse(toBoolean("1"));
+        assertFalse(toBoolean("0"));
+        assertFalse(toBoolean("yes"));
+        assertFalse(toBoolean("no"));
+    }
 }
