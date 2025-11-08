@@ -635,4 +635,50 @@ public class EazyJava {
             throw new IllegalArgumentException("Invalid entry in toBoolean(float): " + e.getMessage());
         }
     }
+
+    /**
+     * Converts an int to a binary
+     * 
+     * @param num the number to convert
+     * @return the interpretation of binary in string
+     */
+    public static String toBin(int num) {
+        try {
+            String binary = Integer.toBinaryString(num);
+            return binary;
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Invalid entry in toBin(int): " + e.getMessage());
+        }
+    }
+
+    /**
+     * Converts an int to a hexadecimal
+     * 
+     * @param num the number to convert
+     * @return the interpretation of hexadecimal in string
+     */
+    public static String toHex(int num) {
+        try {
+            String hexadecimal = Integer.toHexString(num);
+            return hexadecimal;
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Invalid entry in toBin(int): " + e.getMessage());
+        }
+    }
+
+    /**
+     * Converts an int to a octal
+     * 
+     * @param num the number to convert
+     * @return the interpretation of octal in string
+     */
+    public static String toOct(int num) {
+        try {
+            String octal = Integer.toOctalString(num);
+            return octal;
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Invalid entry in toBin(int): " + e.getMessage());
+        }
+    } 
+
 }
