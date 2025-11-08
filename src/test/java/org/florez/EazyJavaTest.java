@@ -378,4 +378,31 @@ class EazyJavaTest {
         assertFalse(toBoolean("yes"));
         assertFalse(toBoolean("no"));
     }
+
+    @Test
+    void testToBinNumberVariations() {
+        assertEquals("11011", toBin(27));
+        assertEquals("1010", toBin(10));
+        assertEquals("1111", toBin(15));
+        assertEquals("10100", toBin(20));
+        assertEquals("110111", toBin(55));
+    }
+
+    @Test
+    void testToHexNumberVariations() {
+        assertEquals("1b", toHex(27));
+        assertEquals("a", toHex(10));
+        assertEquals("f", toHex(15));
+        assertEquals("14", toHex(20));
+        assertEquals("37", toHex(55));
+    }
+
+    @Test
+    void testToOctNumberVariations() {
+        assertEquals("33", toOct(27));
+        assertEquals("12", toOct(10));
+        assertEquals("17", toOct(15));
+        assertEquals("24", toOct(20));
+        assertEquals("67", toOct(55));
+    }
 }
